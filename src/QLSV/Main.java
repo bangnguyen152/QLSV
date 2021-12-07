@@ -1,23 +1,26 @@
 package QLSV;
+
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Main {
     public static ArrayList<Mark> Diem1 = new ArrayList<>();
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
-        boolean con=true;
+        boolean con = true;
         QuanLySV quanLySV = new QuanLySV();
         String maSV;
         while (con) {
             showMenu();
             System.out.print("Nhập lựa chọn: ");
             int choice = sc.nextInt();
-            switch (choice){
+            switch (choice) {
                 case 1:
                     quanLySV.add();
                     break;
-                    //HS1.add(quanLySV);
+                //HS1.add(quanLySV);
                 case 2:
                     maSV = quanLySV.nhapMaSV();
                     quanLySV.edit(maSV);
@@ -39,11 +42,11 @@ public class Main {
                 case 6:
                     System.out.print("Nhập mã SV: ");
                     String MaSv = sc1.nextLine();
-                    String header = String.format("%-12s%-12s%-15s%-15s%-10s","Mã SV","MaMH","TênMH","Điểm","Tình Trạng");
+                    String header = String.format("%-12s%-12s%-15s%-15s%-10s", "Mã SV", "MaMH", "TênMH", "Điểm", "Tình Trạng");
                     System.out.println(header);
-                    for (Mark diem1: Diem1){
-                        if (MaSv.equals(diem1.getMaSv())){
-                            for (int i=0;i< diem1.Mon.length;i++) {
+                    for (Mark diem1 : Diem1) {
+                        if (MaSv.equals(diem1.getMaSv())) {
+                            for (int i = 0; i < diem1.Mon.length; i++) {
                                 String row = String.format("%-12s%-12s%-15S%-15.2f%-10s", diem1.getMaSv(), diem1.Mon[i].getMaMH(), diem1.Mon[i].getTenMh(), diem1.Mon[i].getDiem(), diem1.Mon[i].getTinhTrang());
                                 System.out.println(row);
                             }
@@ -53,10 +56,10 @@ public class Main {
                 case 7:
                     System.out.print("Nhập mã MH: ");
                     String MaMH = sc1.nextLine();
-                    String header2 = String.format("%-12s%-12s%-15s%-15s%-10s","Mã SV","MaMH","TênMH","Điểm","Tình Trạng");
+                    String header2 = String.format("%-12s%-12s%-15s%-15s%-10s", "Mã SV", "MaMH", "TênMH", "Điểm", "Tình Trạng");
                     System.out.println(header2);
-                    for (Mark diem1: Diem1){
-                        for (int i=0;i<diem1.Mon.length;i++) {
+                    for (Mark diem1 : Diem1) {
+                        for (int i = 0; i < diem1.Mon.length; i++) {
                             if (MaMH.equals(diem1.Mon[i].getMaMH())) {
                                 String row = String.format("%-12s%-12s%-15S%-15f%-10s", diem1.getMaSv(), diem1.Mon[i].getMaMH(), diem1.Mon[i].getTenMh(), diem1.Mon[i].getDiem(), diem1.Mon[i].getTinhTrang());
                                 System.out.println(row);
@@ -71,21 +74,20 @@ public class Main {
                     System.out.println("2.Qua");
                     System.out.print("Nhập lựa chọn: ");
                     int chon = sc.nextInt();
-                    String header3 = String.format("%-12s%-12s%-15s%-15s","Mã SV","MaMH","TênMH","Điểm");
+                    String header3 = String.format("%-12s%-12s%-15s%-15s", "Mã SV", "MaMH", "TênMH", "Điểm");
                     System.out.println(header3);
-                    if (chon==1) {
+                    if (chon == 1) {
                         for (Mark diem1 : Diem1) {
-                            for (int i=0;i<diem1.Mon.length;i++) {
+                            for (int i = 0; i < diem1.Mon.length; i++) {
                                 if ("Thi Lại".equals(diem1.Mon[i].getTinhTrang()) && Ma.equals(diem1.Mon[i].getMaMH())) {
                                     String row = String.format("%-12s%-12s%-15S%-15f", diem1.getMaSv(), diem1.Mon[i].getMaMH(), diem1.Mon[i].getTenMh(), diem1.Mon[i].getDiem());
                                     System.out.println(row);
                                 }
                             }
                         }
-                    }
-                    else {
+                    } else {
                         for (Mark diem1 : Diem1) {
-                            for (int i=0;i<diem1.Mon.length;i++) {
+                            for (int i = 0; i < diem1.Mon.length; i++) {
                                 if ("Qua Môn".equals(diem1.Mon[i].getTinhTrang()) && Ma.equals(diem1.Mon[i].getMaMH())) {
                                     String row = String.format("%-12s%-12s%-15S%-15f", diem1.getMaSv(), diem1.Mon[i].getMaMH(), diem1.Mon[i].getTenMh(), diem1.Mon[i].getDiem());
                                     System.out.println(row);
@@ -95,16 +97,15 @@ public class Main {
                     }
                     break;
                 case 9:
-                    for (Mark diem1:Diem1){
-                        if (diem1.GPA()>7.5){
-                            for (SinhVien sinhVien: quanLySV.getArrSinhVien()){
-                                if (diem1.getMaSv().equals(sinhVien.getMaSV())){
+                    for (Mark diem1 : Diem1) {
+                        if (diem1.GPA() > 7.5) {
+                            for (SinhVien sinhVien : quanLySV.getArrSinhVien()) {
+                                if (diem1.getMaSv().equals(sinhVien.getMaSV())) {
                                     quanLySV.show();
-                                    System.out.println("GPA: "+ diem1.GPA());
+                                    System.out.println("GPA: " + diem1.GPA());
                                 }
                             }
-                        }
-                        else {
+                        } else {
                             System.out.println("Null!!");
                         }
                     }
@@ -114,6 +115,8 @@ public class Main {
             }
         }
     }
+
+    //menu
     public static void showMenu() {
         System.out.println("\n-----------MENU------------");
         System.out.println("1. Thêm sinh viên.");
@@ -128,4 +131,5 @@ public class Main {
         System.out.println("Press any key to exit!!");
         System.out.println("---------------------------");
     }
+
 }
