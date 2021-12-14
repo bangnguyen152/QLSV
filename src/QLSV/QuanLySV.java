@@ -1,8 +1,6 @@
 package QLSV;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class QuanLySV {
@@ -19,7 +17,9 @@ public class QuanLySV {
         String lop = nhapLop();
         String ngaySinh = nhapNgaySinh();
         String diaChi = nhapDiaChi();
-        SinhVien sinhVien = new SinhVien(maSV, hoTen, lop, ngaySinh, diaChi);
+        String soDt = nhapSoDt();
+        String gioiTinh = nhapGioiTinh();
+        SinhVien sinhVien = new SinhVien(maSV, hoTen, lop, ngaySinh, diaChi,soDt,gioiTinh);
         try{
             arrSinhVien.add(sinhVien);
         }
@@ -39,6 +39,8 @@ public class QuanLySV {
                 arrSinhVien.get(i).setLop(nhapLop());
                 arrSinhVien.get(i).setNgaySinh(nhapNgaySinh());
                 arrSinhVien.get(i).setDiaChi(nhapDiaChi());
+                arrSinhVien.get(i).setGioiTinh(nhapGioiTinh());
+                arrSinhVien.get(i).setSoDt(nhapSoDt());
                 break;
             }
             if (!tonTai) {
@@ -67,10 +69,20 @@ public class QuanLySV {
             System.out.format("%20s | ", sinhVien.getHoTen());
             System.out.format("%5s | ", sinhVien.getNgaySinh());
             System.out.format("%20s | ", sinhVien.getDiaChi());
+            System.out.format("%20s | ", sinhVien.getGioiTinh());
+            System.out.format("%20s | ", sinhVien.getSoDt());
+            System.out.println();
         }
 
     }
-
+    public String nhapSoDt() {
+        System.out.print("Nhập số ĐT: ");
+        return scanner.nextLine();
+    }
+    public String nhapGioiTinh() {
+        System.out.print("Nhập giới tính: ");
+        return scanner.nextLine();
+    }
     public String nhapMaSV() {
         System.out.print("Nhập mã sinh viên: ");
         return scanner.nextLine();
@@ -106,20 +118,5 @@ public class QuanLySV {
     public ArrayList<SinhVien> getArrSinhVien() {
         return arrSinhVien;
     }
-    /*public float nhapGPA() {
-        System.out.println("Nhập GPA: ");
-        while (true) {
-            try {
-                float gpa = Float.parseFloat(scanner.nextLine());
-                if (gpa < 0.0 && gpa > 10.0) {
-                    throw new NumberFormatException();
-                }
-                return gpa;
-            } catch (NumberFormatException e) {
-                System.out.println("Nhập điểm không hợp lệ! Nhập lại!");
-            }
-        }
-
-    }*/
 
 }

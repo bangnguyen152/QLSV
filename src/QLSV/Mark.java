@@ -18,6 +18,36 @@ public class Mark extends Subject{
     }
 
     @Override
+    public void setMaMH(String maMH) {
+        super.setMaMH(maMH);
+    }
+
+    @Override
+    public String getMaMH() {
+        return super.getMaMH();
+    }
+
+    @Override
+    public void setTenMH(String tenMh) {
+        super.setTenMH(tenMh);
+    }
+
+    @Override
+    public String getTenMh() {
+        return super.getTenMh();
+    }
+
+    @Override
+    public int getSoTC() {
+        return super.getSoTC();
+    }
+
+    @Override
+    public void setSoTC(int soTC) {
+        super.setSoTC(soTC);
+    }
+
+    @Override
     void nhapTT() {
         System.out.print("Nhập mã SV: ");
         this.maSv= sc2.nextLine();

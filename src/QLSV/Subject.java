@@ -1,6 +1,7 @@
 package QLSV;
 import java.util.Scanner;
-public class Subject {
+
+public class Subject extends MonHoc{
     public Scanner sc1 = new Scanner(System.in);
     public Scanner sc2 = new Scanner(System.in);
     String maMH;
@@ -10,29 +11,9 @@ public class Subject {
     int soTC;
     public Subject(){}
     public Subject(String maMH,String tenMh,int soTC,float Diem,String tinhTrang){
-        this.maMH=maMH;
-        this.tenMh=tenMh;
-        this.soTC=soTC;
+        super(maMH, tenMh, soTC);
         this.Diem=Diem;
         this.tinhTrang=tinhTrang;
-    }
-    public void setMaMH(String maMH) {
-        this.maMH = maMH;
-    }
-    public void setTenMh(String tenMh) {
-        this.tenMh = tenMh;
-    }
-    public void setSoTC(int soTC) {
-        this.soTC = soTC;
-    }
-    public int getSoTC() {
-        return soTC;
-    }
-    public String getMaMH() {
-        return maMH;
-    }
-    public String getTenMh() {
-        return tenMh;
     }
     public void setDiem(float diem) {
         Diem = diem;
