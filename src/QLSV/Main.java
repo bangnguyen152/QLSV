@@ -60,6 +60,8 @@ public class Main {
                 case 13:
                     inTTDangKi();
                     break;
+                case 14:
+                    break;
                 default:
                     con = false;
             }
